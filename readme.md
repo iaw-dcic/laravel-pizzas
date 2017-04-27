@@ -1,3 +1,97 @@
+## Clase Laravel
+
+`composer create-project --prefer-dist laravel/laravel pizzas`
+
+`php artisan migrate`
+
+`php artisan make:model Pizza -mc`
+
+`php artisan migrate`
+
+# model:
+
+```
+            $table->string('nombre');
+            $table->integer('precio');
+            $table->string('tipo');
+```
+
+`php artisan tinker`
+
+# controller:
+
+```
+		use App\Pizza;
+
+		$pizzas = Pizza::all();
+		return view('pizzas.index', compact('pizzas'));
+```
+
+# view: (pizzas.index.blade.php)
+
+```
+	<?php foreach ($pizzas as $pizza) : ?>
+		<li><?= $pizza->nombre ?></li>	
+	<?php endforeach ?>
+```
+```
+	@foreach ($pizzas as $pizza)
+		<li>{{$pizza->nombre}}</li>	
+	@endforeach
+```
+```
+ 						@foreach ($pizzas as $pizza)
+							<tr id='{{$pizza->id}}'>
+								<td><input type="checkbox"></td>
+								<td>{{$pizza->nombre}}</td>
+								<td>{{$pizza->precio}}</td>
+							</tr>	
+						@endforeach
+```
+
+# Route:
+
+`Route::get('/pizzas', 'PizzaController@index');`
+
+`Route::get('/pizzas/json', 'PizzaController@json');`
+
+
+# Controller
+
+```
+	public function json() {
+		return Pizza::all();
+	}
+```
+
+```
+ wget https://raw.githubusercontent.com/iaw-dcic/js-dom/master/images/background-760x760.jpg
+ wget https://raw.githubusercontent.com/iaw-dcic/js-dom/master/images/background-wood.jpg
+ wget https://raw.githubusercontent.com/iaw-dcic/js-dom/master/images/pattern.png
+```
+
+
+# ajax
+
+```
+$(function() {
+    $.ajax({
+        url: "/pizzas/json",
+        context: document.body,
+        success: function (data) {
+            pedido = data;
+            mostrarPizzas(ordenarPizzas(data));
+        }
+    });
+});
+```
+
+
+
+
+
+
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
