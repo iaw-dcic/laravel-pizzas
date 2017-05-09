@@ -33,8 +33,3 @@
         </div>
     </body>
 </html>
-
-<!-- 	@foreach ($pizzas as $pizza)
-		<li>{{$pizza->nombre}}</li>
-	@endforeach
- -->
