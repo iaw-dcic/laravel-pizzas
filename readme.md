@@ -1,5 +1,49 @@
 ## Clase Laravel
 
+
+### Crear proyecto con Code Envy
+
+[![Contribute](http://beta.codenvy.com/factory/resources/codenvy-contribute.svg)](https://codenvy.io/f?id=factory8am4z8kcpq1mkpgp)
+
+Una vez creada la máquina virtual, se debe crear la base de datos correspondiente y ejecutar los comandos
+
+`php artisan migrate`
+
+`php artisan db:seed`
+
+Configuración inicial para ejecutar despues de que la máquina virtual estuvo pausada
+
+Command line: 
+
+```
+sudo service mysql start &&
+cd ${current.project.path} &&
+cp .env.example .env &&
+composer update &&
+php artisan key:generate && 
+php artisan serve --host=0.0.0.0 --port=3000
+```
+
+Preview URL: 
+
+```
+http://${server.port.3000}
+```
+
+Configuración normal, una vez que ya está en funcionamiento el proyecto
+
+Command line: 
+
+```
+cd ${current.project.path} && php artisan serve --host=0.0.0.0 --port=3000
+```
+
+Preview URL: 
+
+```
+http://${server.port.3000}
+```
+
 `composer create-project --prefer-dist laravel/laravel pizzas`
 
 `php artisan migrate`
